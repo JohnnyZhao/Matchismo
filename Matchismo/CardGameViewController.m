@@ -7,11 +7,10 @@
 //
 
 #import "CardGameViewController.h"
-#import "PlayCardDeck.h"
 #import "CardMatchingGame.h"
 
 @interface CardGameViewController ()
-@property (strong, nonatomic) PlayCardDeck *playCardDeck;
+@property (strong, nonatomic) Deck *playCardDeck;
 @property (nonatomic, strong) CardMatchingGame *game;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLable;
@@ -27,15 +26,15 @@
     return _game;
 }
 
-- (PlayCardDeck *)createDeck
+- (Deck *)createDeck // Abstract
 {
-    return [[PlayCardDeck alloc]init];
+    return nil;
 }
 
-- (PlayCardDeck *)playCardDeck
+- (Deck *)playCardDeck
 {
     if (!_playCardDeck) {
-        _playCardDeck = [[PlayCardDeck alloc]init];
+        _playCardDeck = [[Deck alloc]init];
     }
     return _playCardDeck;
 }
